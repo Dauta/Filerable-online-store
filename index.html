@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript" src="libs/knockout-3.4.0.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+
+<div id="main">
+    <div id="bigWrapper">
+        <div id="filters">
+                <table id="menuTable">
+                    <tr><td colspan="2"><p class="title">Brands<p><hr/></td></tr>
+                    <tr><td>First Brand: </td><td><input type="checkbox" data-bind="checked: brandFirst, click: filterNow"/></td></tr>
+                    <tr><td>Second Brand: </td><td><input type="checkbox" data-bind="checked: brandSecond, click: filterNow"/></td></tr>
+                    <tr><td>Third Brand: </td><td><input type="checkbox" data-bind="checked: brandThird, click: filterNow"/></td></tr>
+
+                    <tr><td colspan="2"><p class="title">Fit<p><hr/></td></tr>
+                    <tr><td>Slim: </td><td><input type="checkbox" data-bind="checked: fitSlim, click: filterNow"/></td></tr>
+                    <tr><td>Loose: </td><td><input type="checkbox" data-bind="checked: fitLoose, click: filterNow"/></td></tr>
+
+                    <tr><td colspan="2"><p class="title">Price Range<p><hr/></td></tr>
+                    <tr><td>$50 or Less: </td><td><input type="checkbox" data-bind="checked: priceLow, click: filterNow" /></td></tr>
+                    <tr><td>Between $50 and $100: </td><td><input type="checkbox" data-bind="checked: priceMed, click: filterNow"/></td></tr>
+                    <tr><td>$100+: </td><td><input type="checkbox" data-bind="checked: priceHigh, click: filterNow"/></td></tr>
+                </table>
+
+        </div>
+        <div id="content">
+            <div id="menuBar">
+                <p>Displaying <span data-bind="text: visibles"></span> out of <span data-bind="text: items().length"></span> Items</p>
+            </div>
+            <div data-bind="foreach: items">
+
+                    <div class="me" data-bind="visible: display">
+                        <div class="imageWrapper">
+                            <img class="prodImg" src="" data-bind="attr: {src: imageSrc}" alt="image" />
+                        </div>
+                        <div class="textWrapper">
+                            <p>Brand: <span data-bind="text: brand"></span></p>
+                            <p>Fit Style: <span data-bind="text: fit"></span></p>
+                            <p>Price: <span data-bind="text: price"></span></p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
